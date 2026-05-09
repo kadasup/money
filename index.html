@@ -1,0 +1,65 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>民宿財務報表</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>民宿財務報表（2026/01-2026/04）</h1>
+
+    <section class="card">
+      <h2>單月檢視</h2>
+      <label>查看月份
+        <select id="viewMonth"></select>
+      </label>
+      <table id="summaryTable">
+        <thead>
+          <tr><th>月份</th><th>收入</th><th>支出</th><th>淨利</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>明細</h2>
+      <table id="detailTable">
+        <thead>
+          <tr><th>日期</th><th>類型</th><th>分類</th><th>項目</th><th>金額</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2 id="formTitle">新增明細</h2>
+      <form id="entryForm">
+        <label>月份
+          <select id="month" required></select>
+        </label>
+        <label>日期 <input id="date" type="date" required /></label>
+        <label>類型
+          <select id="type" required>
+            <option value="income">收入</option>
+            <option value="expense">支出</option>
+          </select>
+        </label>
+        <label>分類 <input id="category" type="text" required /></label>
+        <label>項目 <input id="item" type="text" required /></label>
+        <label>金額 <input id="amount" type="number" step="1" min="0" required /></label>
+        <button type="submit" id="submitBtn">新增</button>
+        <button type="button" id="cancelEditBtn" hidden>取消編輯</button>
+        <button type="button" id="deleteBtn" hidden>刪除資料</button>
+      </form>
+      <p>
+        <button type="button" id="exportJsonBtn">下載目前資料(JSON)</button>
+        <button type="button" id="syncXlsxBtn">一鍵同步到XLSX</button>
+        <button type="button" id="resetLocalBtn">清空本機資料</button>
+      </p>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

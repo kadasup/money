@@ -1,0 +1,134 @@
+﻿:root {
+  --bg: #f7f5ef;
+  --card: #fffdf8;
+  --line: #d7cfc2;
+  --text: #2f2922;
+  --accent: #8c4b2f;
+  --danger: #b42318;
+  --ok: #1f7a3f;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  background: radial-gradient(circle at top, #fff6e7 0%, var(--bg) 45%);
+  color: var(--text);
+}
+
+.container {
+  max-width: 1080px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+h1 {
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.hint {
+  margin-top: 0;
+  color: #5d5145;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+  margin: 16px 0;
+  box-shadow: 0 6px 18px rgba(120, 95, 60, 0.08);
+}
+
+h2 {
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+
+form {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  align-items: end;
+}
+
+label {
+  display: grid;
+  gap: 4px;
+  font-size: 14px;
+}
+
+input, select, button {
+  font: inherit;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+button {
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+}
+
+#deleteBtn {
+  background: var(--danger);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  border-bottom: 1px solid var(--line);
+  padding: 10px 8px;
+  text-align: left;
+}
+
+th {
+  background: #f2ebe0;
+  font-weight: 700;
+}
+
+tbody tr:hover {
+  background: #fff8ee;
+}
+
+/* 明細列：僅收入/支出雙色 */
+#detailTable tbody tr.row-income td {
+  background: #ecfdf3;
+}
+
+#detailTable tbody tr.row-expense td {
+  background: #fff7ed;
+}
+
+#detailTable tbody tr {
+  cursor: pointer;
+}
+
+#detailTable tbody tr.row-income:hover td,
+#detailTable tbody tr.row-expense:hover td {
+  filter: brightness(0.97);
+}
+
+.negative {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.positive {
+  color: var(--ok);
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  table {
+    font-size: 12px;
+  }
+}
