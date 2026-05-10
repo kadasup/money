@@ -16,22 +16,22 @@
           "date": "2026-01-03",
           "type": "income",
           "category": "住宿",
-          "item": "booking 雙人房",
+          "item": "Booking 雙人房",
           "amount": 2300
         },
         {
           "date": "2026-01-13",
           "type": "income",
           "category": "住宿",
-          "item": "雙人房",
+          "item": "蔡東華雙人房",
           "amount": 1500
         },
         {
           "date": "2026-01-17",
           "type": "income",
           "category": "住宿",
-          "item": "包棟訂金/尾款",
-          "amount": 15600
+          "item": "康淑汶包棟",
+          "amount": 31200
         },
         {
           "date": "2026-01-27",
@@ -44,8 +44,8 @@
           "date": "2026-01-31",
           "type": "income",
           "category": "住宿",
-          "item": "雙人套房/升級/毛小孩",
-          "amount": 1500
+          "item": "邱淑惠雙人套房/升級",
+          "amount": 3000
         },
         {
           "date": "2026-01-01",
@@ -95,6 +95,13 @@
           "category": "固定支出",
           "item": "床單清洗",
           "amount": 4196
+        },
+        {
+          "date": "2026-01-01",
+          "type": "expense",
+          "category": "廣告",
+          "item": "Google",
+          "amount": 18000
         }
       ]
     },
@@ -105,7 +112,7 @@
           "date": "2026-02-07",
           "type": "income",
           "category": "住宿",
-          "item": "10位",
+          "item": "孟賢10位",
           "amount": 9000
         },
         {
@@ -119,28 +126,28 @@
           "date": "2026-02-17",
           "type": "income",
           "category": "住宿",
-          "item": "狗狗清潔費",
+          "item": "Booking鯉魚/狗清潔費",
           "amount": 3700
         },
         {
           "date": "2026-02-17",
           "type": "income",
           "category": "住宿",
-          "item": "春節櫻花/雅房",
+          "item": "趙珮妏櫻花/雅房",
           "amount": 8000
         },
         {
-          "date": "2026-02-14",
+          "date": "2026-02-17",
           "type": "income",
           "category": "住宿",
-          "item": "兩間梅花房",
+          "item": "Booking兩間梅花房",
           "amount": 10800
         },
         {
           "date": "2026-02-18",
           "type": "income",
           "category": "住宿",
-          "item": "10間房包棟",
+          "item": "林秀鳳包棟",
           "amount": 80000
         },
         {
@@ -161,14 +168,14 @@
           "date": "2026-02-27",
           "type": "income",
           "category": "住宿",
-          "item": "包棟+烤肉車+紅茶",
-          "amount": 91000
+          "item": "陳書洋包棟+烤肉車+紅茶",
+          "amount": 89000
         },
         {
           "date": "2026-02-01",
           "type": "expense",
           "category": "烤肉/食材",
-          "item": "食材與相關支出",
+          "item": "食材/雜費/飼料",
           "amount": 14280
         },
         {
@@ -240,6 +247,69 @@
           "category": "固定支出",
           "item": "床單清洗",
           "amount": 7574
+        },
+        {
+          "date": "2026-02-01",
+          "type": "expense",
+          "category": "房務",
+          "item": "房務紅包",
+          "amount": 2000
+        },
+        {
+          "date": "2026-02-01",
+          "type": "expense",
+          "category": "烤肉",
+          "item": "烤肉車",
+          "amount": 25000
+        },
+        {
+          "date": "2026-02-02",
+          "type": "income",
+          "category": "住宿",
+          "item": "余小姐",
+          "amount": 4500
+        },
+        {
+          "date": "2026-02-07",
+          "type": "income",
+          "category": "住宿",
+          "item": "董豈崧",
+          "amount": 12600
+        },
+        {
+          "date": "2026-02-16",
+          "type": "income",
+          "category": "住宿",
+          "item": "陳家揚bni",
+          "amount": 30000
+        },
+        {
+          "date": "2026-02-20",
+          "type": "income",
+          "category": "住宿",
+          "item": "吳家維",
+          "amount": 70000
+        },
+        {
+          "date": "2026-02-23",
+          "type": "income",
+          "category": "住宿",
+          "item": "陳名妤2晚",
+          "amount": 10000
+        },
+        {
+          "date": "2026-02-01",
+          "type": "expense",
+          "category": "廣告",
+          "item": "Goolge",
+          "amount": 18000
+        },
+        {
+          "date": "2026-02-01",
+          "type": "expense",
+          "category": "Booking",
+          "item": "成交費用",
+          "amount": 4500
         }
       ]
     },
@@ -261,10 +331,10 @@
           "amount": 31200
         },
         {
-          "date": "2026-03-28",
+          "date": "2026-03-27",
           "type": "income",
           "category": "住宿/烤肉",
-          "item": "包棟+代購烤肉食材",
+          "item": "廖妍溱包棟2晚+烤肉",
           "amount": 65800
         },
         {
@@ -272,21 +342,14 @@
           "type": "income",
           "category": "住宿",
           "item": "施正峰現收+紅茶",
-          "amount": 9200
-        },
-        {
-          "date": "2026-03-27",
-          "type": "income",
-          "category": "住宿",
-          "item": "廖小姐",
-          "amount": 23800
+          "amount": 45200
         },
         {
           "date": "2026-03-01",
           "type": "expense",
           "category": "烤肉/食材",
-          "item": "烤肉支出合計",
-          "amount": 10720
+          "item": "食材/水電用品/紙碗/貨車加油",
+          "amount": 12282
         },
         {
           "date": "2026-03-01",
@@ -329,6 +392,27 @@
           "category": "固定支出",
           "item": "床單清洗",
           "amount": 7072
+        },
+        {
+          "date": "2026-03-06",
+          "type": "income",
+          "category": "收入",
+          "item": "林瑞銘包棟+烤肉",
+          "amount": 68000
+        },
+        {
+          "date": "2026-03-08",
+          "type": "income",
+          "category": "住宿",
+          "item": "許鈞翔",
+          "amount": 10800
+        },
+        {
+          "date": "2026-03-01",
+          "type": "expense",
+          "category": "廣告",
+          "item": "Google",
+          "amount": 18000
         }
       ]
     },
@@ -336,18 +420,18 @@
       "month": "2026-04",
       "details": [
         {
-          "date": "2026-04-01",
+          "date": "2026-04-03",
           "type": "income",
           "category": "住宿",
-          "item": "7間包棟",
-          "amount": 28000
+          "item": "安麗7間包棟",
+          "amount": 40000
         },
         {
-          "date": "2026-04-01",
+          "date": "2026-04-18",
           "type": "income",
-          "category": "烤肉",
-          "item": "烤肉",
-          "amount": 12000
+          "category": "住宿",
+          "item": "鍾宛蒨雙人套房",
+          "amount": 5000
         },
         {
           "date": "2026-04-24",
@@ -357,7 +441,7 @@
           "amount": 7000
         },
         {
-          "date": "2026-04-24",
+          "date": "2026-04-25",
           "type": "income",
           "category": "住宿/烤肉",
           "item": "李雅雙住宿+代購烤肉",
@@ -367,7 +451,7 @@
           "date": "2026-04-01",
           "type": "expense",
           "category": "食材/營運",
-          "item": "4月支出合計",
+          "item": "食材/加油/濾心/貓飼料",
           "amount": 36543
         },
         {
@@ -404,6 +488,13 @@
           "category": "固定支出",
           "item": "床單清洗",
           "amount": 5355
+        },
+        {
+          "date": "2026-04-01",
+          "type": "expense",
+          "category": "廣告",
+          "item": "Google",
+          "amount": 18000
         }
       ]
     }

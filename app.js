@@ -1,4 +1,4 @@
-﻿const STORAGE_KEY = 'bnb_financial_data_v1';
+const STORAGE_KEY = 'bnb_financial_data_v1';
 const FALLBACK_DATA = {
   meta: {
     notes: [
@@ -88,10 +88,12 @@ function sortDetails(details) {
   return details
     .map((d, index) => ({ d, index }))
     .sort((a, b) => {
+      // 先分組：收入整區在前，支出整區在後
       if (a.d.type !== b.d.type) {
         return a.d.type === 'income' ? -1 : 1;
       }
-      return b.d.date.localeCompare(a.d.date);
+      // 同組內依日期由小到大（舊→新）排序
+      return a.d.date.localeCompare(b.d.date);
     });
 }
 
