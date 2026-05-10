@@ -154,6 +154,61 @@ function saveData(data) {
 
 let editState = { month: null, index: -1 };
 
+function buildMonthlySummary(data) {
+  return (data.months || []).map((m) => {
+    let income = 0;
+    let expense = 0;
+    for (const d of m.details || []) {
+      const amt = Number(d.amount) || 0;
+      if (d.type === 'income') income += amt;
+      else expense += amt;
+    }
+    return { month: m.month, income, expense, net: income - expense };
+  });
+}
+
+function renderMonthlySummary(data) {
+  const body = document.querySelector('#monthlySummaryTable tbody');
+  if (!body) return;
+  body.innerHTML = '';
+
+  for (const row of buildMonthlySummary(data)) {
+    const tr = document.createElement('tr');
+    const netClass = row.net < 0 ? 'negative' : 'positive';
+    tr.innerHTML = `
+      <td>${row.month}</td>
+      <td>${money(row.income)}</td>
+      <td>${money(row.expense)}</td>
+      <td class="${netClass}">${money(row.net)}</td>
+    `;
+    body.appendChild(tr);
+  }
+}
+
+function renderTotalSummary(data) {
+  const body = document.querySelector('#totalSummaryTable tbody');
+  if (!body) return;
+  body.innerHTML = '';
+
+  const monthly = buildMonthlySummary(data);
+  const totalIncome = monthly.reduce((sum, x) => sum + x.income, 0);
+  const totalExpense = monthly.reduce((sum, x) => sum + x.expense, 0);
+  const totalNet = totalIncome - totalExpense;
+  const netClass = totalNet < 0 ? 'negative' : 'positive';
+
+  const rows = [
+    ['總收入', money(totalIncome), 'positive'],
+    ['總支出', money(totalExpense), 'negative'],
+    ['總淨利', money(totalNet), netClass]
+  ];
+
+  for (const [name, value, cls] of rows) {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${name}</td><td class="${cls}">${value}</td>`;
+    body.appendChild(tr);
+  }
+}
+
 function resetFormUI() {
   document.getElementById('formTitle').textContent = '新增明細';
   document.getElementById('submitBtn').textContent = '新增';
@@ -163,6 +218,9 @@ function resetFormUI() {
 }
 
 function render(data, selectedMonth) {
+  renderMonthlySummary(data);
+  renderTotalSummary(data);
+
   const summaryBody = document.querySelector('#summaryTable tbody');
   const detailBody = document.querySelector('#detailTable tbody');
   summaryBody.innerHTML = '';

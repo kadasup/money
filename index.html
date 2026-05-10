@@ -33,7 +33,7 @@
       </table>
     </section>
 
-    <section class="card">
+    <section class="card" hidden>
       <h2 id="formTitle">新增明細</h2>
       <form id="entryForm">
         <label>月份
@@ -58,6 +58,26 @@
         <button type="button" id="syncXlsxBtn">一鍵同步到XLSX</button>
         <button type="button" id="resetLocalBtn">清空本機資料</button>
       </p>
+    </section>
+
+    <section class="card">
+      <h2>每月統計</h2>
+      <table id="monthlySummaryTable">
+        <thead>
+          <tr><th>月份</th><th>收入</th><th>支出</th><th>淨利</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>總統計</h2>
+      <table id="totalSummaryTable">
+        <thead>
+          <tr><th>項目</th><th>金額</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
     </section>
   </main>
   <script src="app.js"></script>
