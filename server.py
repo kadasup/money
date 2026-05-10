@@ -1,4 +1,5 @@
 import json
+import os
 import subprocess
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -7,6 +8,8 @@ from pathlib import Path
 HOST = "127.0.0.1"
 PORT = 5500
 DATA_FILE = Path("financial_data.json")
+XLSX_FILE = Path("financial_report.xlsx")
+AUTO_PUSH_ENV = "GITHUB_AUTO_PUSH"
 
 
 def is_valid_data_shape(data):
@@ -23,6 +26,33 @@ def is_valid_data_shape(data):
         if not isinstance(m.get("details"), list):
             return False
     return True
+
+
+def try_git_commit_and_push():
+    if os.getenv(AUTO_PUSH_ENV, "").lower() not in {"1", "true", "yes"}:
+        return "auto-push disabled"
+
+    if not Path(".git").exists():
+        return "not a git repo, skipped push"
+
+    subprocess.run(["git", "add", str(DATA_FILE), str(XLSX_FILE)], check=True)
+    status = subprocess.run(
+        ["git", "status", "--porcelain", "--", str(DATA_FILE), str(XLSX_FILE)],
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    if not status.stdout.strip():
+        return "no file changes, skipped commit"
+
+    commit = subprocess.run(
+        ["git", "commit", "-m", "chore: sync financial report"],
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    subprocess.run(["git", "push"], capture_output=True, text=True, check=True)
+    return f"committed and pushed ({commit.stdout.strip()})"
 
 
 class Handler(SimpleHTTPRequestHandler):
@@ -49,9 +79,10 @@ class Handler(SimpleHTTPRequestHandler):
                 text=True,
                 check=True,
             )
+            git_result = try_git_commit_and_push()
 
             body = json.dumps(
-                {"ok": True, "message": result.stdout.strip()},
+                {"ok": True, "message": result.stdout.strip(), "git": git_result},
                 ensure_ascii=False,
             ).encode("utf-8")
             self.send_response(200)

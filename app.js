@@ -116,6 +116,22 @@ function isValidDataShape(data) {
 }
 
 async function loadData() {
+  // Prefer repo data (GitHub-tracked financial_data.json) as source of truth.
+  if (window.location.protocol !== 'file:') {
+    try {
+      const res = await fetch('financial_data.json');
+      if (res.ok) {
+        const remote = normalizeDataLabels(await res.json());
+        if (isValidDataShape(remote)) {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(remote));
+          return remote;
+        }
+      }
+    } catch (_) {
+      // Continue to local fallback below.
+    }
+  }
+
   const local = localStorage.getItem(STORAGE_KEY);
   if (local) {
     try {
@@ -128,23 +144,8 @@ async function loadData() {
     }
   }
 
-  let data = FALLBACK_DATA;
-  if (window.location.protocol !== 'file:') {
-    try {
-      const res = await fetch('financial_data.json');
-      if (res.ok) data = await res.json();
-    } catch (_) {
-      data = FALLBACK_DATA;
-    }
-  }
-
-  const normalized = normalizeDataLabels(data);
-  if (!isValidDataShape(normalized)) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(FALLBACK_DATA));
-    return FALLBACK_DATA;
-  }
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(normalized));
-  return normalized;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(FALLBACK_DATA));
+  return FALLBACK_DATA;
 }
 
 function saveData(data) {
