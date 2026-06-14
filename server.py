@@ -1,6 +1,7 @@
 import json
 import os
 import subprocess
+import sys
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -74,7 +75,7 @@ class Handler(SimpleHTTPRequestHandler):
             )
 
             result = subprocess.run(
-                ["py", "-3", "build_report.py"],
+                [sys.executable, "build_report.py"],
                 capture_output=True,
                 text=True,
                 check=True,
