@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --bg: #f7f5ef;
   --card: #fffdf8;
   --line: #d7cfc2;
@@ -109,7 +109,7 @@ tbody tr:hover {
 }
 
 #detailTable tbody tr {
-  cursor: pointer;
+  cursor: default;
 }
 
 #detailTable tbody tr.row-income:hover td,

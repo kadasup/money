@@ -272,6 +272,7 @@ function render(data, selectedMonth) {
       <td>${d.item}</td>
       <td>${money(d.amount)}</td>
     `;
+    /* 暫時隱藏修改功能
     tr.addEventListener('click', () => {
       document.getElementById('month').value = monthData.month;
       document.getElementById('date').value = d.date;
@@ -285,6 +286,7 @@ function render(data, selectedMonth) {
       document.getElementById('deleteBtn').hidden = false;
       editState = { month: monthData.month, index: originalIndex };
     });
+    */
     detailBody.appendChild(tr);
   });
 
